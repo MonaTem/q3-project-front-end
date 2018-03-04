@@ -9,7 +9,7 @@ class GetCards extends Component {
     }
 
     componentDidMount() {
-        axios.get('/cards.json')
+        axios.get('/Cards')
             .then(res => {
                 const fetchedCards = [];
                 for (let key in res.data) {
@@ -18,7 +18,7 @@ class GetCards extends Component {
                         id: key
                     });
                 }
-                this.setState({loading: false, cards: fetchedCardss});
+                this.setState({loading: false, cards: fetchedCards});
             })
             .catch(err => {
                 this.setState({loading: false});

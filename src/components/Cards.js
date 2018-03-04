@@ -7,7 +7,7 @@ class Cards extends Component {
   constructor(props) {
   super(props);
   this.state = {
-    card: 'Empty card'
+    card: ''
   }
   // this.handleClick = this.handleClick.bind(this);
                       }
