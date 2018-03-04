@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect, Link } from 'react-router-dom';
 import GetCards from './GetCards';
-import Card from 'Card';
+import Card from './Card';
 
 
 class Cards extends Component {
