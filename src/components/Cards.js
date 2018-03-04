@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect, Link } from 'react-router-dom';
 import GetCards from 'GetCards';
+import Card from 'Card';
 
 
 class Cards extends Component {
@@ -28,25 +29,17 @@ handleClick() {
 }
 */
 
-
-
     render () {
         return (
             <div className="Cards">
-
-         <h1>All Cards</h1>
-         <ul>
-           <ul>
-             <Cards
+             <h1>All Cards</h1>
+               <ul>
+                  <Cards
                         key={card.id}
                         cardname={card.cardname}
                         img={card.src}
-
                         />
-          )}
-      </ul>
-    )
-         </ul>
+              </ul>
 
               <Switch>
                 <Redirect from="/" to="/Cards" /> */
@@ -54,7 +47,6 @@ handleClick() {
                 <Route exact path='/' component={Cards} />
                 <Route path='/Card' component={Card} />
                 <Route render={() => <h1>Not found</h1>}/>
-
               </Switch>
           </div>
         );

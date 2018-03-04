@@ -18,7 +18,7 @@ class GetCards extends Component {
                         id: key
                     });
                 }
-                this.setState({loading: false, cards: fetchedCards});
+                this.setState({loading: false, card: fetchedCards});
             })
             .catch(err => {
                 this.setState({loading: false});
