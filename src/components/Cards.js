@@ -1,45 +1,42 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect, Link } from 'react-router-dom';
-import GetCards from './GetCards';
 import Card from './Card';
-
+import axios from '../axios-cards';
+import Cardline from './Cardline';
 
 class Cards extends Component {
-  constructor(props) {
-  super(props);
-  this.state = {
-    card: ''
+  state = {
+      card: [],
+      loading: true
   }
-                     }
-  // this.handleClick = this.handleClick.bind(this);
-
-/*
-handleClick() {
-  let newState = {};
-  /*if (this.state.greeting === 'Hello') {
-    newState = {
-      greeting: 'Hola', name: 'Dolores'
-    }
-  } else {
-    newState = {
-      greeting: 'Hello', name: 'Dolly'
-    }
+  componentDidMount() {
+      axios.get('/Cards')
+          .then(res => {
+              const fetchedCards = [];
+              for (let key in res.data) {
+                  fetchedCards.push({
+                      ...res.data[key],
+                      id: key
+                  });
+              }
+              this.setState({loading: false, card: fetchedCards});
+              // console.log(card);
+          })
+          .catch(err => {
+              this.setState({loading: false});
+          });
   }
-  this.setState( newState );
-}
-*/
 
     render () {
         return (
             <div className="Cards">
              <h1>All Cards</h1>
-               <ul>
-                  <Cards
-                        key={card.id}
-                        cardname={card.cardname}
-                        imgurl={card.card_image_url}
-                        />
-              </ul>
+             {this.state.card.map(order => (
+                 <Cards
+                     key={this.state.card.id}
+                     cardname={this.state.card.cardname}
+                     card_image_url={this.state.card.card_image_url} />
+             ))}
 
               <Switch>
                 <Redirect from="/" to="/Cards" /> */
