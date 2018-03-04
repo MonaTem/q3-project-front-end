@@ -7,7 +7,7 @@ class App extends Component {
       // <BrowserRouter basename="/my-app">
       <BrowserRouter>
         <div className="App">
-          <Blog />
+          <Home />
         </div>
       </BrowserRouter>
     );
