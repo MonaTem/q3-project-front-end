@@ -48,8 +48,9 @@ handleClick() {
          </ul>
 
               <Switch>
-                <Route exact path='/' component={Cards} />
+                <Redirect from="/" to="/Cards" /> */
                 <Route exact path='/Cards' component={Cards} />
+                <Route exact path='/' component={Cards} />
                 <Route path='/Card' component={Card} />
                 <Route render={() => <h1>Not found</h1>}/>
 
