@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect, Link } from 'react-router-dom';
-import GetCards from 'GetCards';
+import GetCards from './GetCards';
 import Card from 'Card';
 
 
@@ -37,7 +37,7 @@ handleClick() {
                   <Cards
                         key={card.id}
                         cardname={card.cardname}
-                        img={card.src}
+                        imgurl={card.card_image_url}
                         />
               </ul>
 

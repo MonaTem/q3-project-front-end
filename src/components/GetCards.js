@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect, Link } from 'react-router-dom';
-import axios from '../../axios-orders';
+import axios from '../axios-cards';
+import Cards from './Cards';
 
 class GetCards extends Component {
     state = {
-        cards: [],
+        card: [],
         loading: true
     }
 
@@ -19,6 +20,7 @@ class GetCards extends Component {
                     });
                 }
                 this.setState({loading: false, card: fetchedCards});
+                // console.log(card);
             })
             .catch(err => {
                 this.setState({loading: false});
@@ -28,11 +30,11 @@ class GetCards extends Component {
     render () {
         return (
             <div>
-                {this.state.cards.map(order => (
+                {this.state.card.map(order => (
                     <Card
                         key={card.id}
                         cardname={card.cardname}
-                        src={require{card.card_image_url}} />
+                        card_image_url={card.card_image_url} />
                 ))}
             </div>
         );
