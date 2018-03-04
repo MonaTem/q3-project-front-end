@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
 import { Route, NavLink, Switch, Redirect, Link } from 'react-router-dom';
+import GetCards from 'GetCards';
 
-class Home extends Component {
-    state = {
+
+class Cards extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    card: 'Empty card'
+  }
+  // this.handleClick = this.handleClick.bind(this);
+                      }
+/*
+handleClick() {
+  let newState = {};
+  /*if (this.state.greeting === 'Hello') {
+    newState = {
+      greeting: 'Hola', name: 'Dolores'
+    }
+  } else {
+    newState = {
+      greeting: 'Hello', name: 'Dolly'
+    }
+  }
+  this.setState( newState );
+}
+*/
 
     }
 
@@ -10,16 +33,30 @@ class Home extends Component {
         return (
             <div className="Cards">
 
-         <h1>Let us tell you about our coffees.</h1>
-<ul>
-  <li><Link to='/coffee/peruvian'>Peruvian</Link></li>
-  <li><Link to='/coffee/kona'>Kona</Link></li>
-</ul>
+         <h1>All Cards</h1>
+         <ul>
+           <ul>
+             <Cards
+                        key={card.id}
+                        cardname={card.cardname}
+                        img={card.src}
+                      {/*clicked={() => this.cardSelectedHandler( post.id )} */ }
+                        />
+          )}
+      </ul>
+    )
+         </ul>
 
+              <Switch>
+                <Route exact path='/' component={Cards} />
+                <Route exact path='/Cards' component={Cards} />
+                <Route path='/Card' component={Card} />
+                <Route render={() => <h1>Not found</h1>}/>
 
-            </div>
+              </Switch>
+          </div>
         );
     }
 }
 
-export default Home;
+export default Cards;
