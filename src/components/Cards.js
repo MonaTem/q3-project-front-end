@@ -30,9 +30,9 @@ class Home extends Component {
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} />
                 <Route path="/" render={() => <h1>Home 2</h1>} /> */}
                 <Switch>
-                    <Route path="/new-post" component={AsyncNewPost} /> : null}
-                    <Route path="/posts" component={Posts} />
-                    <Route render={() => <h1>Not found</h1>}/>
+                    <Route path="/cards" component={Cards} /> : null}
+                    <Route path="/card" component={Card} />
+                  <Route render={() => <h1>Not found/h1>}/>
                     {/* <Redirect from="/" to="/posts" /> */}
                     {/* <Route path="/" component={Posts} /> */}
                 </Switch>
