@@ -9,8 +9,9 @@ class Cards extends Component {
   this.state = {
     card: ''
   }
+                     }
   // this.handleClick = this.handleClick.bind(this);
-                      }
+
 /*
 handleClick() {
   let newState = {};
@@ -27,7 +28,7 @@ handleClick() {
 }
 */
 
-    }
+
 
     render () {
         return (
@@ -40,7 +41,7 @@ handleClick() {
                         key={card.id}
                         cardname={card.cardname}
                         img={card.src}
-                      {/*clicked={() => this.cardSelectedHandler( post.id )} */ }
+
                         />
           )}
       </ul>
