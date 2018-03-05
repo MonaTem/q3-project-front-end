@@ -22,6 +22,7 @@ class Cards extends Component {
                       ...res.data[key],
                       id: key
                   });
+              console.log("this is what we fetched " + fetchedCards);   
               }
               this.setState({loading: false, card: fetchedCards});
           })
