@@ -14,7 +14,7 @@ class Cards extends Component {
   }
   componentDidMount() {
 
-      axios.get('/Cards')
+      axios.get('/cards')
           .then(res => {
               const fetchedCards = [];
               for (let key in res.data) {
