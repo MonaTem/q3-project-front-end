@@ -34,7 +34,7 @@ class Cards extends Component {
 
         return (
             <div className="Cards">
-             <h1>All Cards</h1>
+             <h1>Esoteric Interpretations of Tarot Cards</h1>
              {this.state.card.map(order => (
                  <Cardline
                      key={this.state.card.id}
