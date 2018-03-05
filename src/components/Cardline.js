@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './Post.css';
+import './Cardline.css';
 
-const post = (props) => (
-    <article className="Cardline" onClick={props.clicked}>
-      <div className="CardStuff">
-            <div className="CardName">{props.cardname}</div>
-            <div className="CardImg">
-               <img src={props.card_image_url} />
+const Cardline = props => (
+    <div className="Cardline card-deck" onClick={props.clicked}>
+      <div className="card">
+            <img className="card-img-top img-fluid" src={props.card_image_url} alt="Tarot card" />
+            <div className="card-footer">
+               <p className="card-text">{props.cardname}</p>
             </div>
-        </div>
-    </article>
+      </div>
+    </div>
 );
 
-export default post;
+export default Cardline;
