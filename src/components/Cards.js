@@ -32,10 +32,22 @@ class Cards extends Component {
           });
    }
 
-   cardSelectedHandler = ( id ) => {
+   cardSelectedHandler = ( card ) => {
         // this.props.history.push({pathname: '/Card/' + id});
-        this.props.history.push( '/Card/' + id );
-         <Route path='/Card' component={Card} />
+        // this.props.history.push( '/Card/' + card.id );
+
+        card = ( card )  => {
+                return (
+                          <div>
+                            <Card
+                               key={card.id}
+                               cardname={card.cardname}
+                               card_image_url={card.card_image_url}
+                               cardinfo={card.cardinfo}/>
+                           </div>
+                        );
+          };
+
     }
 
     render () {
@@ -48,7 +60,7 @@ class Cards extends Component {
                            key={card.id}
                            cardname={card.cardname}
                            card_image_url={card.card_image_url}
-                           clicked={() => this.cardSelectedHandler( card.id )}/>
+                           clicked={() => this.cardSelectedHandler( card )}/>
                        </div>
                     );
                   });
