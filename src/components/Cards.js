@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line
-import { Link, Redirect, Switch } from 'react-router-dom';
+import { Link, Redirect, Switch, Route } from 'react-router-dom';
 // eslint-disable-next-line
 import Card from './Card';
 import axios from '../axios-cards';
@@ -32,6 +32,12 @@ class Cards extends Component {
           });
    }
 
+   cardSelectedHandler = ( id ) => {
+        // this.props.history.push({pathname: '/Card/' + id});
+        this.props.history.push( '/Card/' + id );
+         <Route path='/Card' component={Card} />
+    }
+
     render () {
         let cards = <h1>Esoteric Interpretations of Tarot Cards</h1>
 
@@ -41,11 +47,8 @@ class Cards extends Component {
                         <Cardline
                            key={card.id}
                            cardname={card.cardname}
-                           card_image_url={card.card_image_url} />
-
-                           <Switch>
-                              <Redirect from="/" to="/Cards" />
-                           </Switch>
+                           card_image_url={card.card_image_url}
+                           clicked={() => this.cardSelectedHandler( card.id )}/>
                        </div>
                     );
                   });
