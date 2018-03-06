@@ -16,37 +16,46 @@ class Cards extends Component {
 
       axios.get('/cards')
           .then(res => {
-              const fetchedCards = [];
+           const fetchedCards = [];
               for (let key in res.data) {
                   fetchedCards.push({
                       ...res.data[key],
                       id: key
                   });
-              console.log("this is what we fetched " + fetchedCards);   
+              //console.log("this is what we fetched " + fetchedCards);
               }
+
               this.setState({loading: false, card: fetchedCards});
           })
           .catch(err => {
               this.setState({loading: false});
           });
-  }
+   }
 
     render () {
+        let cards = <h1>Esoteric Interpretations of Tarot Cards</h1>
 
-        return (
-            <div className="Cards">
-             <h1>Esoteric Interpretations of Tarot Cards</h1>
-             {this.state.card.map(order => (
-                 <Cardline
-                     key={this.state.card.id}
-                     cardname={this.state.card.cardname}
-                     card_image_url={this.state.card.card_image_url} />
-             ))}
-             <Switch>
-             <Redirect from="/" to="/Cards" />
-             </Switch>
-          </div>
-        );
+         cards =  this.state.card.map(card => {
+                    return (
+                      <div>
+                        <Cardline
+                           key={card.id}
+                           cardname={card.cardname}
+                           card_image_url={card.card_image_url} />
+
+                           <Switch>
+                              <Redirect from="/" to="/Cards" />
+                           </Switch>
+                       </div>
+                    );
+                  });
+
+       return (
+              <div>
+                <h1>Esoteric Interpretations of Tarot Cards</h1>
+                      {cards}
+              </div>
+       );
     }
 }
 
