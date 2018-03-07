@@ -40,7 +40,7 @@ class Cards extends Component {
    //      //
    //      //    clickedCard = ( clickedCard )  => {
    //      //
-   //      //         return (
+        //         return (
    //      //                   <div>
    //      //                     <Card
    //      //                        key={clickedCard.id}
@@ -64,15 +64,18 @@ class Cards extends Component {
                       <div key={card.id}>
                         <Cardline
                            cardname={card.cardname}
-                           card_image_url={card.card_image_url} />
+                           card_image_url={card.card_image_url}
+                           cardinfo={card.cardinfo}
+                         />
                            {/* clicked={() => this.cardSelectedHandler( card )}/> */}
                        </div>
                     );
                   });
 
        return (
-              <div>
+              <div className="card-deck" >
                 <h1>Esoteric Interpretations of Tarot Cards</h1>
+
                       {cards}
                 <Switch>
                   <Redirect exact from='/' to="/Cards" />
