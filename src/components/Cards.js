@@ -32,35 +32,40 @@ class Cards extends Component {
           });
    }
 
-   cardSelectedHandler = ( card ) => {
-        // this.props.history.push({pathname: '/Card/' + id});
-        // this.props.history.push( '/Card/' + card.id );
-
-        card = ( card )  => {
-                return (
-                          <div>
-                            <Card
-                               key={card.id}
-                               cardname={card.cardname}
-                               card_image_url={card.card_image_url}
-                               cardinfo={card.cardinfo}/>
-                           </div>
-                        );
-          };
-
-    }
+   // cardSelectedHandler = ( clickedCard ) => {
+   //      // this.props.history.push({pathname: '/Card/' + id});
+   //      // this.props.history.push( '/Card/' + card.id );
+   //      console.log("we are here")
+   //      // render () {
+   //      //
+   //      //    clickedCard = ( clickedCard )  => {
+   //      //
+   //      //         return (
+   //      //                   <div>
+   //      //                     <Card
+   //      //                        key={clickedCard.id}
+   //      //                        cardname={clickedCard.cardname}
+   //      //                        card_image_url={clickedCard.card_image_url}
+   //      //                        cardinfo={clickedCard.cardinfo}/>
+   //      //                        {/* <Switch> */}
+   //      //                          {/* <Route path='/Card' component={Card} /> */}
+   //      //                        {/* </Switch> */}
+   //      //                    </div>
+   //      //                 );
+   //      //     };
+   //      // }
+   //  }
 
     render () {
         let cards = <h1>Esoteric Interpretations of Tarot Cards</h1>
 
          cards =  this.state.card.map(card => {
                     return (
-                      <div>
+                      <div key={card.id}>
                         <Cardline
-                           key={card.id}
                            cardname={card.cardname}
-                           card_image_url={card.card_image_url}
-                           clicked={() => this.cardSelectedHandler( card )}/>
+                           card_image_url={card.card_image_url} />
+                           {/* clicked={() => this.cardSelectedHandler( card )}/> */}
                        </div>
                     );
                   });
@@ -69,6 +74,9 @@ class Cards extends Component {
               <div>
                 <h1>Esoteric Interpretations of Tarot Cards</h1>
                       {cards}
+                <Switch>
+                  <Redirect exact from='/' to="/Cards" />
+                </Switch>
               </div>
        );
     }

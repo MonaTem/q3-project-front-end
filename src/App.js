@@ -12,8 +12,8 @@ class App extends Component {
       <div>
         <Cards>
             <Switch>
+              <Route path='/' component={Cards} />
               <Route path='/Cards' component={Cards} />
-              <Route exact path='/' component={Cards} />
               <Route path='/Card' component={Card} />
               <Route render={() => <h1>Not found</h1>}/>
             </Switch>
