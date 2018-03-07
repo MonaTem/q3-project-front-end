@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line
-import { Link, Redirect, Switch, Route } from 'react-router-dom';
 // eslint-disable-next-line
 import Card from './Card';
 import axios from '../axios-cards';
@@ -75,11 +74,7 @@ class Cards extends Component {
        return (
               <div className="card-deck" >
                 <h1>Esoteric Interpretations of Tarot Cards</h1>
-
-                      {cards}
-                <Switch>
-                  <Redirect exact from='/' to="/Cards" />
-                </Switch>
+              {cards}
               </div>
        );
     }
