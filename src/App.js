@@ -7,18 +7,17 @@ import Cards from './components/Cards';
 import Card from './components/Card';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        clickedCardId: null
+    };
+  }  
   render () {
     return (
       <div>
-        <Cards>
-            <Switch>
-              {/* <Redirect exact from='/' to="/Cards" /> */}
-              <Route exact path='/' component={Cards} />
-              <Route exact path='/Cards' component={Cards} />
-              <Route exact path='/Card' component={Card} />
-              <Route render={() => <h1>Not found</h1>}/>
-            </Switch>
-        </Cards>
+        {this.state.clickedCardId === null ?
+          <Cards /> : <Card id={this.state.clickedCardId} />}
       </div>
     );
   }

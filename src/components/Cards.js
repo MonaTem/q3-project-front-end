@@ -42,13 +42,18 @@ class Cards extends Component {
 
    cardSelectedHandler = ( id ) => {
 
+     this.setState({clicked: true});
 
-     <Card id={ id } clicked="true" />
+     <Card id={ id } clicked={true} />
 
    }
 
     render () {
         let cards = <h1>Esoteric Interpretations of Tarot Cards</h1>
+
+         console.log(this.state.clicked);
+
+         if (this.state.clicked === false) {
 
          cards =  this.state.card.map(card => {
                     return (
@@ -69,6 +74,8 @@ class Cards extends Component {
               {cards}
               </div>
        );
+     } else
+       return <Card/>
     }
 }
 
