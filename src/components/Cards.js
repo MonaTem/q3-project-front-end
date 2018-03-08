@@ -7,10 +7,18 @@ import Cardline from './Cardline';
 import './Cardline.css';
 
 class Cards extends Component {
-  state = {
-      loading: true,
-      card: []
+  constructor(props) {
+    super(props);
+    this.state = {
+        loading: true,
+        card: [],
+        clicked: false
+    };
+    this.cardSelectedHandler = this.cardSelectedHandler.bind(this);
   }
+
+
+
   componentDidMount() {
 
       axios.get('/cards')
@@ -24,52 +32,36 @@ class Cards extends Component {
               //console.log("this is what we fetched " + fetchedCards);
               }
 
-              this.setState({loading: false, card: fetchedCards});
+              this.setState({loading: false, card: fetchedCards, clicked: false});
           })
           .catch(err => {
               this.setState({loading: false});
           });
    }
 
-   // cardSelectedHandler = ( clickedCard ) => {
-   //      // this.props.history.push({pathname: '/Card/' + id});
-   //      // this.props.history.push( '/Card/' + card.id );
-   //      console.log("we are here")
-   //      // render () {
-   //      //
-   //      //    clickedCard = ( clickedCard )  => {
-   //      //
-        //         return (
-   //      //                   <div>
-   //      //                     <Card
-   //      //                        key={clickedCard.id}
-   //      //                        cardname={clickedCard.cardname}
-   //      //                        card_image_url={clickedCard.card_image_url}
-   //      //                        cardinfo={clickedCard.cardinfo}/>
-   //      //                        {/* <Switch> */}
-   //      //                          {/* <Route path='/Card' component={Card} /> */}
-   //      //                        {/* </Switch> */}
-   //      //                    </div>
-   //      //                 );
-   //      //     };
-   //      // }
-   //  }
+
+   cardSelectedHandler = ( id ) => {
+
+
+     <Card id={ id } clicked="true" />
+
+   }
 
     render () {
         let cards = <h1>Esoteric Interpretations of Tarot Cards</h1>
 
          cards =  this.state.card.map(card => {
                     return (
-                      <div key={card.id}>
+                      <div key={card.id} >
                         <Cardline
                            cardname={card.cardname}
                            card_image_url={card.card_image_url}
+                           onClick={() => this.cardSelectedHandler( this.card.id )}
                            cardinfo={card.cardinfo}
                          />
-                           {/* clicked={() => this.cardSelectedHandler( card )}/> */}
                        </div>
-                    );
-                  });
+                     );
+          })
 
        return (
               <div className="card-deck" >
