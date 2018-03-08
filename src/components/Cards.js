@@ -40,13 +40,13 @@ class Cards extends Component {
    }
 
 
-   cardSelectedHandler = ( id ) => {
-
-     this.setState({clicked: true});
-
-     <Card id={ id } clicked={true} />
-
-   }
+   // cardSelectedHandler = ( id ) => {
+   //
+   //   this.setState({clicked: true});
+   //
+   //   <Card id={ id } clicked={true} />
+   //
+   // }
 
     render () {
         let cards = <h1>Esoteric Interpretations of Tarot Cards</h1>
@@ -61,7 +61,7 @@ class Cards extends Component {
                         <Cardline
                            cardname={card.cardname}
                            card_image_url={card.card_image_url}
-                           onClick={() => this.cardSelectedHandler( this.card.id )}
+                           // onClick={() => this.cardSelectedHandler( this.card.id )}
                            cardinfo={card.cardinfo}
                          />
                        </div>
