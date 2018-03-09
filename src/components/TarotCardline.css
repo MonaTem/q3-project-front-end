@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css?family=Inknut+Antiqua');
+
+
+body {
+      background-color: thistle;
+      font-family: 'Inknut Antiqua', serif;
+      color: black;
+     }
+
+h1 {
+    margin-left: 30%;
+    font-size:
+    }
+
+@fontface {
+  font-family: 'Inknut Antiqua', serif;
+  src: url('https://fonts.googleapis.com/css?family=Inknut+Antiqua')
+}
+
+/* .card-deck {
+  height: 300;
+  width: 150;
+} */
+/*
+.Button {
+  float-
+}
+*/
+
+/* button {
+    margin-bottom: 5%;
+    color: white;
+    background-color: black;
+} */

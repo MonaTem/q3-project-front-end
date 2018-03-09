@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Cards from './components/Cards';
-import Card from './components/Card';
+import TarotCards from './components/TarotCards';
+import TarotCard from './components/TarotCard';
 import axios from './axios-cards';
 
 
@@ -47,11 +47,12 @@ class App extends Component {
   render = () => {
 
     let selectedCards = this.state.Data.filter(Card => Card.id === this.state.clickedCardId)
+    console.log(this.state.clickedCardId)
     return (
       <React.Fragment>
         {this.state.clickedCardId === null ?
-          <Cards handleClick={this.handleClick} data={this.state.Data} /> :
-          <Card
+          <TarotCards handleClick={this.handleClick} data={this.state.Data} /> :
+          <TarotCard
             Card={selectedCards[0]} handleReturnClick={this.handleReturnClick}
           />
         }
