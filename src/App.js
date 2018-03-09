@@ -46,14 +46,14 @@ class App extends Component {
 
   render = () => {
 
-    let selectedCards = this.state.Data.filter(Card => Card.id === this.state.clickedCardId)
-    console.log(this.state.clickedCardId)
+    let selectedCards = this.state.Data.filter(card => card.id === this.state.clickedCardId)
+    // console.log(this.state.clickedCardId)
     return (
       <React.Fragment>
         {this.state.clickedCardId === null ?
           <TarotCards handleClick={this.handleClick} data={this.state.Data} /> :
           <TarotCard
-            Card={selectedCards[0]} handleReturnClick={this.handleReturnClick}
+            card={selectedCards[0]} handleReturnClick={this.handleReturnClick}
           />
         }
         {/* <Card id={3} />

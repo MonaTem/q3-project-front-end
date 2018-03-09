@@ -8,25 +8,35 @@ body {
       color: black;
      }
 
-h1 {
+h3 {
     margin-left: 30%;
-    font-size:
+    margin-top: 3%;
     }
+
 
 @fontface {
   font-family: 'Inknut Antiqua', serif;
   src: url('https://fonts.googleapis.com/css?family=Inknut+Antiqua')
 }
 
-/* .card-deck {
-  height: 300;
-  width: 150;
-} */
-/*
-.Button {
-  float-
+
+ Button {
+  margin-top: 10px;
+  margin-left: 10px;
 }
-*/
+
+ .line {
+   background-color: thistle;
+   height: 100;
+   width: 50;
+   border-style: none;
+ }
+
+ .cardNm {
+   font-size: 12px;
+   margin-top: 5px;
+ }
+
 
 /* button {
     margin-bottom: 5%;
