@@ -10,9 +10,14 @@ class App extends Component {
     super(props);
     this.state = {
       clickedCardId: null,
-      Data: []
-    }
+      Data: [],
+      ix: 0,
+      error: false,
+      selectedCard: " "
 
+    }
+    console.log("before binds");
+    console.log("clickedCardId is " + this.state.clickedCardId);
     this.handleClick = this.handleClick.bind(this);
     this.handleReturnClick = this.handleReturnClick.bind(this);
   }
@@ -28,41 +33,43 @@ class App extends Component {
                       id: key
                   });
               }
-              this.setState({loading: false, Data: fetchedCards});
+              this.setState({loading: false, Data: fetchedCards, error: false });
               console.log('Data is ' + Object.entries(this.state.Data[0]));
               })
               .catch(err => {
-                  this.setState({loading: false});
+                  this.setState({loading: false, clickedCardID: null, error: true});
           })
  }
 
   handleClick = (id) => {
-    this.setState({clickedCardId: id});
+    console.log("in handleClick");
+    this.setState({clickedCardId: id, ix: this.state.clickedCardId - 1, selectedCard: this.state.Data[this.state.ix]});
+    console.log("clickedCardId is " + this.state.clickedCardId);
   }
 
   handleReturnClick = () => {
+    console.log("in handlereturn");
     this.setState({clickedCardId: null});
   }
+
 
   render = () => {
 
     // let selectedCards = this.state.Data.filter(card => card.id === this.state.clickedCardId)
     if (this.state.clickedCardId) {
-       var idx = parseInt(this.state.clickedCardID, 10) - 1;
-       var selectedCard = this.state.Data[idx];
 
        console.log("clickedCardId " + this.state.clickedCardId);
-       console.log("selectedCard  "  + selectedCard);
+       console.log("selectedCard  "  + this.state.selectedCard);
        console.log("Data " + Object.entries(this.state.Data));
-       console.log("idx " + idx);
-    }
+       console.log("ix " + this.state.ix);
+    } else console.log("clickedCardId is null so in else");
 
     return (
       <React.Fragment>
         {this.state.clickedCardId === null ?
           <TarotCards handleClick={this.handleClick} data={this.state.Data} /> :
           <TarotCard
-            card={selectedCard} handleReturnClick={this.handleReturnClick}
+            card={this.state.selectedCard} handleReturnClick={this.handleReturnClick}
           />
         }
         {/* <Card id={3} />
