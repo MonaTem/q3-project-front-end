@@ -43,7 +43,7 @@ class App extends Component {
 
   handleClick = (id) => {
     console.log("in handleClick");
-    this.setState({clickedCardId: id, ix: this.state.clickedCardId - 1, selectedCard: this.state.Data[this.state.ix]});
+    this.setState({clickedCardId: id, ix: (this.state.clickedCardId - 1), selectedCard: this.state.Data[this.state.ix]});
     console.log("clickedCardId is " + this.state.clickedCardId);
   }
 
