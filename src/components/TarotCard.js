@@ -11,6 +11,7 @@ class TarotCard extends Component {
       card: props.card,
       handleReturnClick: props.handleReturnClick
     }
+    console.log("card is " + this.state.card);
 
     this.handleReturnClick = this.state.handleReturnClick.bind(this);
   }
@@ -20,7 +21,7 @@ class TarotCard extends Component {
       <div>
         <Card>
           <CardTitle>Esoteric Interpretation of {this.state.card.cardname}</CardTitle>
-        <CardImg top="top" img-fluid="img-fluid" src={this.state.card.card_image_url} height="300" width="150" alt="Tarot card"/>
+          <CardImg top="top" img-fluid="img-fluid" src={this.state.card.card_image_url} height="300" width="150" alt="Tarot card"/>
           <CardBody>
             <CardText>{this.state.card.cardinfo}</CardText>
           </CardBody>

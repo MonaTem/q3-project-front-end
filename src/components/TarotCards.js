@@ -19,7 +19,7 @@ const TarotCards = ({handleClick, data}) => {
              card_image_url={card.card_image_url}
            />
          </Card>
-         <Button color="primary" size="sm" onClick={handleClick}>Select</Button>
+         <Button color="primary" size="sm" onClick={handleClick(card.id)}>Select</Button>
          </div>
        )}
         </CardDeck>

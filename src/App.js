@@ -29,11 +29,11 @@ class App extends Component {
                   });
               }
               this.setState({loading: false, Data: fetchedCards});
+              console.log('Data is ' + Object.entries(this.state.Data[0]));
               })
               .catch(err => {
                   this.setState({loading: false});
           })
-
  }
 
   handleClick = (id) => {
@@ -46,14 +46,23 @@ class App extends Component {
 
   render = () => {
 
-    let selectedCards = this.state.Data.filter(card => card.id === this.state.clickedCardId)
-    // console.log(this.state.clickedCardId)
+    // let selectedCards = this.state.Data.filter(card => card.id === this.state.clickedCardId)
+    if (this.state.clickedCardId) {
+       var idx = parseInt(this.state.clickedCardID, 10) - 1;
+       var selectedCard = this.state.Data[idx];
+
+       console.log("clickedCardId " + this.state.clickedCardId);
+       console.log("selectedCard  "  + selectedCard);
+       console.log("Data " + Object.entries(this.state.Data));
+       console.log("idx " + idx);
+    }
+
     return (
       <React.Fragment>
         {this.state.clickedCardId === null ?
           <TarotCards handleClick={this.handleClick} data={this.state.Data} /> :
           <TarotCard
-            card={selectedCards[0]} handleReturnClick={this.handleReturnClick}
+            card={selectedCard} handleReturnClick={this.handleReturnClick}
           />
         }
         {/* <Card id={3} />
